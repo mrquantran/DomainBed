@@ -272,10 +272,6 @@ def download_sviro(data_dir):
     download_and_extract("https://sviro.kl.dfki.de/?wpdmdl=1731",
                          os.path.join(data_dir, "sviro_grayscale_rectangle_classification.zip"))
 
-    os.rename(os.path.join(data_dir, "SVIRO_DOMAINBED"),
-              full_path)
-
-
 # SPAWRIOUS #############################################################
 
 def download_spawrious(data_dir, remove=True):
@@ -293,12 +289,15 @@ if __name__ == "__main__":
     parser.add_argument('--data_dir', type=str, required=True)
     args = parser.parse_args()
 
+    if dataset === "PACS":
+        download_pacs(args.data_dir)
+
     # download_mnist(args.data_dir)
     # download_pacs(args.data_dir)
     # download_office_home(args.data_dir)
     # download_domain_net(args.data_dir)
     # download_vlcs(args.data_dir)
-    download_terra_incognita(args.data_dir)
+    # download_terra_incognita(args.data_dir)
     # download_spawrious(args.data_dir)
     # download_sviro(args.data_dir)
     # Camelyon17Dataset(root_dir=args.data_dir, download=True)
